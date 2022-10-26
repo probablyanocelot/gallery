@@ -4,11 +4,14 @@ from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.uix.floatlayout import FloatLayout
+# from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
-from kivy.uix.textinput import TextInput
-from kivy.uix.popup import Popup
+# from kivy.uix.textinput import TextInput
+# from kivy.uix.popup import Popup
+from kivy.uix.image import Image
+
+import glob
 
 Window.clearcolor = .3, .3, .3, 1
 
@@ -74,6 +77,24 @@ class BackButton(Button):
             App.get_running_app().root.current = App.get_running_app().root.previous()
         else:
             App.get_running_app().root.current = 'home'
+
+
+class ImageGallery(BoxLayout):
+    def __init__(self, **kwargs):
+        super(ImageGallery, self).__init__(**kwargs)
+        images = glob.glob('img\*.bmp')
+        # image = AsyncImage(source='img\*.bmp')
+        self.cols = 3
+        for img in images:
+            thumb = ImageThumbnail(source=img)
+            self.add_widget(thumb)
+
+
+class ImageThumbnail(Image):
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            print(self.source)
+    # pass
 
 
 if __name__ == '__main__':
