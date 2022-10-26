@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../0. repo/frontend"
 		}
 	],
 	"settings": {}

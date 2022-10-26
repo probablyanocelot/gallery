@@ -1,0 +1,94 @@
+/* collapse into one column on small devices */
+@media (max-width: 768px) {
+    .grail {
+      grid-template-areas:
+        "header"
+        "nav"
+        "content"
+        "side"
+        "footer";
+  
+      grid-template-columns: 1fr;
+      grid-template-rows:
+        auto /* Header */
+        minmax(75px, auto) /* Nav */
+        1fr /* Content */
+        minmax(75px, auto) /* Sidebar */
+        auto; /* Footer */
+    }
+  
+    nav, aside {
+      margin: 0;
+    }
+  }
+  
+  
+  
+  /* the grid */
+  .grail {
+    display: grid;
+  
+    grid-template-areas:
+      "header header header"
+      "nav content side"
+      "footer footer footer";
+  
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+  
+    height: 100vh;
+  }
+  
+  /* grid items */
+  header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav {
+    grid-area: nav;
+    margin-left: 0.5rem;
+  }
+  
+  main {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  aside {
+    grid-area: side;
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  /*  
+  We can use flexbox on our header for example
+  to have the elements inside the header container
+  be evenly distributed on the horizontal axis:
+  */
+  
+  /*  
+  header {
+    grid-area: header;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  */
