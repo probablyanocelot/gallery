@@ -46,26 +46,6 @@
     background-color: green;
   }
 
-  .logo-wrapper {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar {
-    list-style-type: none;
-
-    background-color: salmon;
-
-    display: flex;
-    justify-content: space-around;   
-    align-items: center; 
-  }
-
-  .navbar-link:hover {
-    color: gray;
-    transition-duration: 0.5s;
-  }
   
   nav {
     background-color: red;
@@ -101,19 +81,35 @@
   }
   
   
-  /*  
-  We can use flexbox on our header for example
-  to have the elements inside the header container
-  be evenly distributed on the horizontal axis:
-  */
-  
-  /*  
-  header {
-    grid-area: header;
-  
-    display: flex;
-    justify-content: space-between;
+/* HEADER */
+
+  .logo-wrapper {
+    display:flex;
+    flex-direction: column;
     align-items: center;
   }
-  
-  */
+
+  .navbar {
+    list-style-type: none;
+
+    background-color: salmon;
+
+    display: flex;
+    justify-content: space-around;   
+    align-items: center; 
+  }
+
+  .navbar-border {
+    border-style: outset;
+    border-radius: 10px;    
+    }
+    
+  .navbar-border:hover{
+    border-style: inset;
+  }
+
+  .navbar-link:hover {
+    color: gray;
+    transition-duration: 0.5s;
+  }
+
